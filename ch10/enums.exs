@@ -41,4 +41,19 @@ defmodule Enums do
   end
 
 
+
+  def take(list, n), do: do_take(list, n)
+
+  defp do_take(_, 0), do: []
+
+  defp do_take([], _), do: []
+
+  defp do_take([head | tail], n), do: [head | do_take(tail, n - 1)]
+
+
+  def flatten([]), do: []
+  def flatten([head | tail]), do: flatten(head) ++ flatten(tail)
+  def flatten(val), do: [val]
+
+
 end
